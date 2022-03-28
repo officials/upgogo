@@ -26,7 +26,6 @@ const addToArrayForm = function (num, k) {
     const count = Number(num[i] || 0) + Number(arr[i] || 0) + ten
     ten = count >= 10 ? 1 : 0
     num[i] = count % 10
-    min--
   }
   if (ten) {
     num.unshift(1)
