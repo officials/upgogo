@@ -85,6 +85,3 @@ MyQueue.prototype.inputStrack = function () {
     this.strack_two.push(this.strack_one.pop())
   }
 }
-
-[1, 2, 3]
-[3, 2, 1]
