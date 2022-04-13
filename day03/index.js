@@ -115,7 +115,3 @@ CustomStack.prototype.increment = function (k, val) {
   }
   return this.strack
 };
-
-new Promise()
-  .then()
-  .finally
