@@ -10,3 +10,5 @@ type Includes<T extends Array<any>, U extends any> = U extends T[number]
 
 // test
 type isPillarMen = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'> // expected to be `false`
+
+
