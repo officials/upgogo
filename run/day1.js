@@ -1,21 +1,8 @@
 /**
- * https://leetcode-cn.com/problems/robot-return-to-origin/
- * 657. 机器人能否返回原点
+ * deepClone
  */
 
-export function judgeCircle(moves: string): boolean {
-  return (
-    moves.split('L').length === moves.split('R').length &&
-    moves.split('U').length === moves.split('D').length
-  )
-}
-
-/**
- * 实现深拷贝
- */
-
-// 简单版
-export const simpleDeepClone = (target) => {
+const simpleDeepClone = (target) => {
   if (typeof target !== 'object') return target;
   let res = {};
   for (let item in target) {
@@ -36,12 +23,12 @@ const getRegExp = (target) => {
   if (target.ignoreCase) {
     str += 'i'
   }
-  if (target.multiple) {
+  if (reg.multiple) {
     str += 'm'
   }
   return str
 }
-export const deepClone = (obj) => {
+const deepClone = (obj) => {
   let parents = [];
   let childrens = [];
   const clone = (parent) => {
@@ -66,11 +53,9 @@ export const deepClone = (obj) => {
       return childrens[parents.indexOf(parent)]
     }
     for (const i in parent) {
-      child[i] = clone(parent[i])
+      child[item] = clone(parent[i])
     }
     return child
   }
   return clone(obj)
 }
-
-
