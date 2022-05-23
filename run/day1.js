@@ -59,3 +59,53 @@ const deepClone = (obj) => {
   }
   return clone(obj)
 }
+
+/**
+ * quickSort
+ */
+
+const quickSort = (nums) => {
+  if (nums.length <= 1) return nums
+  let mid = nums.length >> 1;
+  let l = [], r = []
+  let prev = nums.splice(mid, 1)
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < prev) {
+      l.push(nums[i])
+    } else {
+      r.push(nums[i])
+    }
+  }
+  return quickSort(l).concat(prev, quickSort(r))
+}
+
+/**
+ * 归并排序
+ */
+
+const merge = (left, right) => {
+  let result = []
+  let l = 0, r = 0
+  while (l < left.length && r < right.length) {
+    if (left[l] < right[r]) {
+      result.push(left[l++])
+    } else {
+      result.push(right[r++])
+    }
+  }
+  while (l < left.length) {
+    result.push(left[l++])
+  }
+  while (r < right.length) {
+    result.push(right[r++])
+  }
+  return result
+}
+
+const mergeSort = (nums) => {
+  if (nums.length === 1) return nums
+  let mid = nums.length >> 1
+  let left = nums.slice(0, mid)
+  let right = nums.slice(mid)
+  return merge(mergeSort(left), mergeSort(right))
+}
