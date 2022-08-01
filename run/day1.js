@@ -60,6 +60,25 @@ const deepClone = (obj) => {
   return clone(obj)
 }
 
+var permute = function (nums) {
+  const res = [], path = []
+  tracking(nums, nums.length, [])
+  return res
+  function tracking (arr, len, used) {
+    if (path.length === len) {
+      res.push(Array.from(path))
+    }
+    for (let i = 0; i < len; i++) {
+      if (used[i]) continue;
+      path.push(arr[i])
+      used[i] = true
+      tracking(arr, len, used)
+      path.pop()
+      used[i] = false
+    }
+  }
+};
+
 /**
  * quickSort
  */
